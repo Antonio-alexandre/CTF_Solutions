@@ -29,7 +29,7 @@ Ao acessar o link da página de login, nos deparamos com a seguinte tela:
 
 Para acessarmos, é necessário utilizar o usuário `admin`, porém este está filtrado. Para contornar tal restrição, poderemos 'quebrar' o termo em dois, e utilizar o operador de concatenação `||` para juntar os dois fragmentos na consulta. 
 
-O campo `Username` então, ficará assim: `ad'||'min'`.
+O campo `Username` então, ficará assim: `ad'||'min`.
 
 Já o campo de senha, não poderemos utilizar apenas um operador de comentário no campo `Username` para contornar, pois todos estão filtrados. Sendo assim, é necessário utilizar uma expressão que sempre retorne verdadeiro para forçar a entrada.
 
