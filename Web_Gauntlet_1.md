@@ -5,7 +5,7 @@
 
 ## Desafio: Web Gauntlet 1 (Exploração Web)
 #### Introdução
-Este desafio explora vulnerabilidades em ambientes que utilizam SQLite. É composto de 5 fases, e exige que o usuário faça login na conta "admin" utilizando de técnicas de SQL Injection. Porém, há filtros que impossibilitam o uso de determinados comandos, que são adicionados a cada rodada, aumentando assim a complexidade e exigindo mais conhecimento.
+Este desafio explora vulnerabilidades em ambientes que utilizam SQLite. É composto de 5 fases, e exige que o usuário faça login na conta "admin" utilizando de técnicas de SQL Injection. Porém, há filtros que impossibilitam o uso de determinados operadores, que são incrementados a cada rodada, aumentando assim a complexidade e exigindo mais conhecimento.
 - [Página do desafio](https://play.picoctf.org/practice/challenge/88)
 ### Análise Inicial
 A princípio, são introduzidas algumas informações. São elas:
