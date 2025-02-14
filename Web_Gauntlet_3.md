@@ -1,9 +1,9 @@
-# DuckWare Team - Web Gauntlet 2 (picoCTF 2024)
+# DuckWare Team - Web Gauntlet 3 (picoCTF 2024)
 ###### Solved by @Antonio-alexandre
 
 > This is a CTF about SQL Injection, Web Exploitation
 
-## Desafio: Web Gauntlet 2 (Exploração Web)
+## Desafio: Web Gauntlet 3 (Exploração Web)
 #### Introdução
 
 Este desafio explora vulnerabilidades em ambientes que utilizam SQLite. É composto apenas de uma fase com filtros específicos de operadores e um limite de 25 caracteres que impossibilitam o uso de certas técnicas e exigem uma abordagem ainda mais curta.
