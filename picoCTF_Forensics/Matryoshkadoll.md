@@ -3,7 +3,7 @@
 
 > This is a CTF about Steganography, Image manipulation
 
-## Desafio: Matryoshka Doll (Binwalk)
+## Desafio: Matryoshka Doll (Esteganografia)
 #### Introdução
 
 Neste desafio, precisaremos analisar e procurar arquivos escondidos em uma imagem comum.
