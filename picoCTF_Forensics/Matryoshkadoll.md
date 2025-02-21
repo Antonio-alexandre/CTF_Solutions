@@ -6,7 +6,7 @@
 ## Desafio: Matryoshka Doll (Esteganografia)
 #### Introdução
 
-Neste desafio, precisaremos analisar e procurar arquivos escondidos em uma imagem comum.
+Neste desafio, precisaremos analisar e procurar arquivos escondidos em uma imagem *supostamente* comum.
 
 - [Página do desafio](https://play.picoctf.org/practice/challenge/129)
 
