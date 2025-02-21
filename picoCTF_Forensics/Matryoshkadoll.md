@@ -1,9 +1,9 @@
-# DuckWare Team - Endianness-v2 (picoCTF 2024)
+# DuckWare Team - Matryoshka Doll (picoCTF 2024)
 ###### Solved by @Antonio-alexandre
 
 > This is a CTF about Steganography, Image manipulation
 
-## Desafio: Endianness-v2 (Exploração Binária)
+## Desafio: Matryoshka Doll (Binwalk)
 #### Introdução
 
 Neste desafio, precisaremos analisar e procurar arquivos escondidos em uma imagem comum.
