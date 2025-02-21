@@ -1,9 +1,9 @@
-# DuckWare Team - Endianness-v2 (picoCTF 2024)
+# DuckWare Team - Eavesdrop (picoCTF 2024)
 ###### Solved by @Antonio-alexandre
 
 > This is a CTF about Network Traffic Analysis and Packet Sniffing
 
-## Desafio: Endianness-v2 (Exploração Binária)
+## Desafio: Eavesdrop (Sniffing de Pacotes e Análise de Tráfego de rede)
 #### Introdução
 
 Neste desafio, precisaremos analisar um arquivo de captura de tráfego de rede (.pcap), assim buscando maneiras de encontrar a flag.
