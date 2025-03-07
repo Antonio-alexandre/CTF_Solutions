@@ -22,7 +22,7 @@ Além dos seguintes links para download dos arquivos:
 - [Link 1](http://pwnable.kr/bin/bof)
 - [Link 2](http://pwnable.kr/bin/bof.c)
 
-Além do seguinte códig para conectar ao servidor:
+Além do seguinte código para conectar ao servidor:
 
 `nc pwnable.kr 9000` 
 
