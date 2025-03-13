@@ -1,9 +1,9 @@
-# Duckware Team - uaf (pwnable)
+# Duckware Team - Horcruxes (pwnable)
 ###### Solved by @Antonio-alexandre
 
-> This CTF is about pwn, rop,
+> This CTF is about pwn
 
-## Desafio: uaf (Pwn, Use After Free)
+## Desafio: Horcruxes (Pwn)
 #### Introdução
 
 A lógica que o código adota é: uma história baseada em Harry Potter, onde o jogador precisa 'derrotar' o Voldemort. Para isso, o sistema pergunta a quantidade de pontos de experiência que foram coletados após colectar cada Horcrux. Caso o jogador não tenha coletado todas, ele não possuirá pontos de experiência suficientes para enfrentar Voldemort.
