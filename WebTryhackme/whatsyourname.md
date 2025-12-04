@@ -1,4 +1,4 @@
-# Duckware Team - MarsAnalytica
+# Duckware Team - whatsyourname
 ###### Solved by @Antonio-alexandre
 
 > This TryHackMe room is about client-side exploitations
