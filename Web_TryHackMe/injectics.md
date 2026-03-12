@@ -181,7 +181,11 @@ Para isso, o payload utilizado foi o seguinte:
 
 [![image.png](https://i.postimg.cc/C1kNJMWy/image.png)](https://postimg.cc/8JkMzGpw)
 
-Fazendo tudo isso, obtém-se a segunda flag.
+Basta agora acessar esse .txt.
+
+Fazendo isso, obtém-se a segunda flag:
+
+`Welcome, THM{5735172b6c147f4dd649872f73e0fdea} Array!`
 
 #### Conclusão
 
